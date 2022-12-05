@@ -22,7 +22,7 @@ RUN install_packages \
 	; \
     #https://www.includehelp.com/c-programming-questions/compiling-program-with-pthread-library-linux.aspx
     #https://stackoverflow.com/a/15252756/3929620
-    wget --ca-directory=/usr/ssl/certs -P /tmp https://downloads.sourceforge.net/project/fat-controller/fatcontroller-${FATCONTROLLER_VERSION}.tar.gz; \
+    wget --ca-directory=/usr/share/ca-certificates/mozilla -P /tmp https://downloads.sourceforge.net/project/fat-controller/fatcontroller-${FATCONTROLLER_VERSION}.tar.gz; \
 	tar -zxvf /tmp/fatcontroller-${FATCONTROLLER_VERSION}.tar.gz -C /tmp; \
     \
     cd /tmp/fatcontroller-${FATCONTROLLER_VERSION}/; \

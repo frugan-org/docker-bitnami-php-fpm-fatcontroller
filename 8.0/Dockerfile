@@ -22,10 +22,10 @@ RUN install_packages \
 	; \
     #https://www.includehelp.com/c-programming-questions/compiling-program-with-pthread-library-linux.aspx
     #https://stackoverflow.com/a/15252756/3929620
-    wget --no-check-certificate -P /tmp https://downloads.sourceforge.net/project/fat-controller/fatcontroller-${FATCONTROLLER_VERSION}.tar.gz; \
-	tar -zxvf /tmp/fatcontroller-${FATCONTROLLER_VERSION}.tar.gz -C /tmp; \
+    wget --no-check-certificate -P /tmp https://downloads.sourceforge.net/project/fat-controller/fatcontroller-"${FATCONTROLLER_VERSION}".tar.gz; \
+	tar -zxvf /tmp/fatcontroller-"${FATCONTROLLER_VERSION}".tar.gz -C /tmp; \
     \
-    cd /tmp/fatcontroller-${FATCONTROLLER_VERSION}/; \
+    cd /tmp/fatcontroller-"${FATCONTROLLER_VERSION}"/; \
 	make; \
 	make install; \
 	\
@@ -33,6 +33,7 @@ RUN install_packages \
     \
     # If the patch has not been applied, then the $?, which is the exit status,
     # for last command would have a success status code = 0
+	# shellcheck disable=SC2181
     if [ $? -eq 0 ]; then \
     	# Apply the patch
     	patch -d /etc/init.d -p0 -N fatcontrollerd /patch/fatcontrollerd.patch; \

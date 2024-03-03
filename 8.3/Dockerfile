@@ -1,4 +1,4 @@
-FROM frugan/bitnami-php-fpm:8.1
+FROM frugan/bitnami-php-fpm:8.3
 
 
 ### fatcontroller
